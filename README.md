@@ -1,5 +1,8 @@
 # RentHub
 
+## GitHub Repository
+https://github.com/guneetgupta05-sudo/renthub-angular-main
+
 ## Features
 - User Registration and Login
 - Apartment Listings
