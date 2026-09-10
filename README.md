@@ -1,5 +1,8 @@
 # RentHub
 
+## Hosted on netlify
+https://renthub05.netlify.app/
+
 ## GitHub Repository
 https://github.com/guneetgupta05-sudo/renthub-angular-main
 
