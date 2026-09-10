@@ -1,0 +1,80 @@
+<div class="page">
+
+  <p class="page-description">
+    <strong>User Sign Up Form:</strong>
+    Form to collect basic information of user.
+  </p>
+
+  <div class="auth-container">
+
+    <!-- Login -->
+    <section class="auth-section">
+      <h1>Login</h1>
+
+      <form (ngSubmit)="login()">
+
+        <label for="loginEmail">Email</label>
+        <input
+          id="loginEmail"
+          type="email"
+          [(ngModel)]="loginEmail"
+          name="loginEmail"
+          required
+        />
+
+        <label for="loginPassword">Password</label>
+        <input
+          id="loginPassword"
+          type="password"
+          [(ngModel)]="loginPassword"
+          name="loginPassword"
+          required
+        />
+
+        <button type="submit">Login</button>
+
+      </form>
+    </section>
+
+
+    <!-- Register -->
+    <section class="auth-section">
+      <h1>Register</h1>
+
+      <form (ngSubmit)="register()">
+
+        <label for="registerName">Name</label>
+        <input
+          id="registerName"
+          type="text"
+          [(ngModel)]="registerName"
+          name="registerName"
+          required
+        />
+
+        <label for="registerEmail">Email</label>
+        <input
+          id="registerEmail"
+          type="email"
+          [(ngModel)]="registerEmail"
+          name="registerEmail"
+          required
+        />
+
+        <label for="registerPassword">Password</label>
+        <input
+          id="registerPassword"
+          type="password"
+          [(ngModel)]="registerPassword"
+          name="registerPassword"
+          required
+        />
+
+        <button type="submit">Register</button>
+
+      </form>
+    </section>
+
+  </div>
+
+</div>

@@ -1,0 +1,58 @@
+.details-page {
+  width: 90%;
+  max-width: 900px;
+  margin: 32px auto 55px;
+}
+
+.details-container {
+  background: #fff;
+  border: 1px solid #e1e8e5;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 12px 35px rgba(35, 55, 50, .07);
+}
+
+.back-button { background: #edf6f3; color: #176b63; padding: 9px 13px; margin-bottom: 18px; }
+.back-button:hover { background: #dceee9; }
+.details-container > h1 { margin: 0 0 5px; color: #203b36; font-size: 32px; }
+.location { margin: 0 0 20px; color: #6a7975; }
+
+.details-container > .image-placeholder {
+  height: 270px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #8bbeb2, #356f67 55%, #244f4a);
+  color: rgba(255,255,255,.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: .5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.details-container > .image-placeholder::before { content: "⌂"; position: absolute; font-size: 82px; opacity: .18; }
+
+.details-section { margin-top: 24px; padding: 22px; background: #f8faf9; border: 1px solid #e7eeeb; border-radius: 14px; }
+.details-section h2 { margin: 0 0 14px; color: #29443e; font-size: 20px; }
+.details-section p { margin: 9px 0; line-height: 1.55; color: #5d6d68; }
+.details-section strong { color: #2e4842; }
+.details-section ul { margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.details-section li { padding: 7px 11px; border-radius: 20px; background: #e4f2ef; color: #176b63; font-size: 13px; font-weight: 700; }
+
+.comments-section { background: #fff; }
+.comment-form textarea { width: 100%; border: 1px solid #d5e0dc; border-radius: 10px; padding: 11px; resize: vertical; outline: none; }
+.comment-form textarea:focus { border-color: #57a99c; box-shadow: 0 0 0 3px #e4f2ef; }
+.comment-form button { padding: 9px 14px; margin-top: 9px; }
+.comment { margin-top: 18px; padding: 15px; border-left: 3px solid #77b7aa; background: #f7faf9; border-radius: 0 10px 10px 0; }
+.comment p, .reply p { margin: 5px 0; }
+.comment small, .reply small { color: #82908c; }
+.comment button { margin: 8px 6px 0 0; padding: 7px 11px; font-size: 13px; }
+.reply { margin: 13px 0 0 20px; padding: 12px 15px; border-left: 2px solid #d0dfda; }
+
+@media (max-width: 600px) {
+  .details-page { width: 92%; }
+  .details-container { padding: 20px; }
+  .details-container > h1 { font-size: 26px; }
+  .details-container > .image-placeholder { height: 210px; }
+}

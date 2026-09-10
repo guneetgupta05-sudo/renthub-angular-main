@@ -1,0 +1,46 @@
+<nav class="navbar">
+
+  <div class="brand">
+    <a routerLink="/">RentHub</a>
+  </div>
+
+  <div class="nav-links">
+
+    <ng-container *ngIf="!authService.isLoggedIn()">
+
+      <a routerLink="/login">
+        Login
+      </a>
+
+      <a routerLink="/register">
+        Register
+      </a>
+
+      <a routerLink="/profile">
+        Profile
+      </a>
+
+    </ng-container>
+
+
+    <ng-container *ngIf="authService.isLoggedIn()">
+
+  <a routerLink="/create-post">
+    Create Post
+  </a>
+
+  <a routerLink="/profile">
+    Profile
+  </a>
+
+  <a
+    href="#"
+    (click)="logout(); $event.preventDefault()">
+    Logout
+  </a>
+
+</ng-container>
+
+  </div>
+
+</nav>

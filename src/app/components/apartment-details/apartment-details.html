@@ -1,0 +1,190 @@
+<div class="details-page">
+
+  <div class="details-container" *ngIf="apartment">
+
+    <button class="back-button" (click)="goBack()">
+      ← Back to Listings
+    </button>
+
+    <h1>{{ apartment.title }}</h1>
+
+    <p class="location">
+      📍 {{ apartment.location }}
+    </p>
+
+    <div class="image-placeholder">
+      Apartment Image
+    </div>
+
+    <div class="details-section">
+
+      <h2>Property Details</h2>
+
+      <p>
+        <strong>Property Name:</strong>
+        {{ apartment.propertyName }}
+      </p>
+
+      <p>
+        <strong>Property Type:</strong>
+        {{ apartment.propertyType }}
+      </p>
+
+      <p>
+        <strong>Area:</strong>
+        {{ apartment.squareFeet }} sq.ft
+      </p>
+
+      <p>
+        <strong>Stay Type:</strong>
+        {{ apartment.stayType }}
+      </p>
+
+      <p>
+        <strong>Furnished:</strong>
+        {{ apartment.furnished ? 'Yes' : 'No' }}
+      </p>
+
+      <p>
+        <strong>Shared Property:</strong>
+        {{ apartment.sharedProperty ? 'Yes' : 'No' }}
+      </p>
+
+    </div>
+
+    <div class="details-section">
+
+      <h2>Rental Details</h2>
+
+      <p>
+        <strong>Expected Rent:</strong>
+        ₹{{ apartment.expectedRent }}
+      </p>
+
+      <p>
+        <strong>Price Mode:</strong>
+        {{ apartment.priceMode }}
+      </p>
+
+      <p>
+        <strong>Negotiable:</strong>
+        {{ apartment.negotiable ? 'Yes' : 'No' }}
+      </p>
+
+    </div>
+
+    <div class="details-section">
+
+      <h2>Amenities</h2>
+
+      <ul>
+        <li *ngFor="let amenity of apartment.amenities">
+          {{ amenity }}
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="details-section">
+
+      <h2>Description</h2>
+
+      <p>{{ apartment.description }}</p>
+
+    </div>
+
+    <div class="details-section comments-section">
+
+  <h2>Comments</h2>
+
+  <div class="comment-form">
+
+    <textarea
+      [(ngModel)]="newComment"
+      placeholder="Write a comment..."
+      rows="4">
+    </textarea>
+
+    <button (click)="addComment()">
+      Add Comment
+    </button>
+
+  </div>
+
+  <div
+  class="comment"
+  *ngFor="let comment of comments"
+>
+
+  <div *ngIf="comment.parentCommentId === null">
+
+    <p>
+      <strong>{{ comment.userName }}</strong>
+    </p>
+
+    <p>{{ comment.text }}</p>
+
+    <small>
+      {{ comment.createdAt | date:'medium' }}
+    </small>
+
+    <br />
+
+    <button (click)="startReply(comment.id)">
+      Reply
+    </button>
+
+    <!-- Reply form -->
+    <div *ngIf="replyingTo === comment.id">
+
+      <textarea
+        [(ngModel)]="replyText"
+        placeholder="Write a reply..."
+        rows="3">
+      </textarea>
+
+      <button (click)="addReply(comment.id)">
+        Add Reply
+      </button>
+
+      <button (click)="cancelReply()">
+        Cancel
+      </button>
+
+    </div>
+
+    <!-- Replies -->
+    <div
+      class="reply"
+      *ngFor="let reply of comments"
+    >
+
+      <div *ngIf="reply.parentCommentId === comment.id">
+
+        <p>
+          <strong>{{ reply.userName }}</strong>
+        </p>
+
+        <p>{{ reply.text }}</p>
+
+        <small>
+          {{ reply.createdAt | date:'medium' }}
+        </small>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <p *ngIf="comments.length === 0">
+    No comments yet.
+  </p>
+
+</div>
+
+  </div>
+
+</div>

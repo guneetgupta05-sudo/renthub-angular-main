@@ -1,0 +1,155 @@
+<div class="home-container">
+
+  <!-- Welcome -->
+  <section class="welcome-section">
+    <h1>Welcome to RentHub</h1>
+    <p>Find your perfect apartment for rent.</p>
+  </section>
+
+
+  <!-- Search and Filter -->
+  <section class="search-section">
+
+    <h2>Search Apartments</h2>
+
+    <div class="search-row">
+
+      <input
+  type="text"
+  placeholder="Search by location"
+  [(ngModel)]="searchLocation"
+/>
+
+      <input
+  type="number"
+  placeholder="Minimum rent"
+  [(ngModel)]="minRent"
+/>
+
+      <input
+  type="number"
+  placeholder="Maximum rent"
+  [(ngModel)]="maxRent"
+/>
+
+      <button (click)="searchApartments()">
+  Search
+</button>
+
+    </div>
+
+  </section>
+
+
+  <!-- Featured Listings -->
+  <section class="featured-section">
+
+    <h2>Featured Listings</h2>
+
+    <div class="featured-listings">
+
+  <div
+    class="listing-card"
+    *ngFor="let apartment of featuredApartments"
+  >
+
+    <div class="image-placeholder">
+      Apartment Image
+    </div>
+
+    <h3>{{ apartment.title }}</h3>
+
+    <p>{{ apartment.location }}</p>
+
+    <p>
+      ₹{{ apartment.expectedRent }} / {{ apartment.priceMode }}
+    </p>
+
+    <button (click)="router.navigate(['/apartment', apartment.id])">
+  View Details
+</button>
+    <button (click)="toggleFavourite(apartment.id)">
+  {{ isFavourite(apartment.id) ? '♥ Favourite' : '♡ Favourite' }}
+</button>
+
+  </div>
+
+</div>
+
+  </section>
+
+
+  <!-- All Listings -->
+  <section class="all-listings-section">
+
+    <div class="listing-header">
+      <h2>All Listings</h2>
+
+      <select
+  [(ngModel)]="sortOption"
+  (change)="sortApartments()"
+>
+  <option value="">Sort By</option>
+  <option value="priceLowHigh">Price: Low to High</option>
+  <option value="priceHighLow">Price: High to Low</option>
+  <option value="newest">Newest</option>
+</select>
+    </div>
+
+
+    <div class="all-listings">
+
+  <div
+    class="listing-card"
+    *ngFor="let apartment of paginatedApartments"
+  >
+
+    <div class="image-placeholder">
+      Apartment Image
+    </div>
+
+    <h3>{{ apartment.title }}</h3>
+
+    <p>{{ apartment.location }}</p>
+
+    <p>
+      ₹{{ apartment.expectedRent }} / {{ apartment.priceMode }}
+    </p>
+
+    <button (click)="router.navigate(['/apartment', apartment.id])">
+  View Details
+</button>
+
+    <button (click)="toggleFavourite(apartment.id)">
+  {{ isFavourite(apartment.id) ? '♥ Favourite' : '♡ Favourite' }}
+</button>
+
+  </div>
+
+</div>
+
+
+    <!-- Pagination -->
+    <div class="pagination">
+
+  <button
+    (click)="previousPage()"
+    [disabled]="currentPage === 1">
+    Previous
+  </button>
+
+  <span>
+    Page {{ currentPage }} of {{ totalPages }}
+  </span>
+
+  <button
+    (click)="nextPage()"
+    [disabled]="currentPage === totalPages">
+    Next
+  </button>
+
+</div>
+
+  </section>
+
+</div>

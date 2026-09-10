@@ -1,0 +1,306 @@
+<div class="create-post-page">
+
+  <h1>Create New Post</h1>
+
+  <form #postForm="ngForm" (ngSubmit)="createPost(postForm)">
+
+    <!-- Property Type -->
+    <div class="form-group">
+
+      <label>Apartment / Building <span class="required">*</span></label>
+
+      <select
+        [(ngModel)]="propertyType"
+        name="propertyType"
+        required>
+
+        <option value="">Select</option>
+        <option value="Apartment">Apartment</option>
+        <option value="Building">Building</option>
+
+      </select>
+
+    </div>
+
+
+    <!-- Property Name -->
+    <div class="form-group">
+
+      <label>Property Name <span class="required">*</span></label>
+
+      <input
+        type="text"
+        [(ngModel)]="propertyName"
+        name="propertyName"
+        required>
+
+    </div>
+
+
+    <!-- Shared Property -->
+    <div class="form-group">
+
+      <label>Shared Property?</label>
+
+      <label class="radio-label">
+        <input
+          type="radio"
+          [(ngModel)]="sharedProperty"
+          name="sharedProperty"
+          [value]="true">
+        Yes
+      </label>
+
+      <label class="radio-label">
+        <input
+          type="radio"
+          [(ngModel)]="sharedProperty"
+          name="sharedProperty"
+          [value]="false">
+        No
+      </label>
+
+    </div>
+
+
+    <!-- Location -->
+    <div class="form-group">
+
+      <label>Property Location <span class="required">*</span></label>
+
+      <input
+        type="text"
+        [(ngModel)]="location"
+        name="location"
+        required>
+
+    </div>
+
+
+    <!-- Square Feet -->
+    <div class="form-group">
+
+      <label>Square Feet <span class="required">*</span></label>
+
+      <input
+  type="number"
+  [(ngModel)]="squareFeet"
+  name="squareFeet"
+  min="1"
+  required>
+
+    </div>
+
+
+    <!-- Stay Type -->
+    <div class="form-group">
+
+      <label>Stay / Lease Type <span class="required">*</span></label>
+
+      <select
+  [(ngModel)]="stayType"
+  name="stayType"
+  required>
+
+        <option value="">Select</option>
+        <option value="Monthly">Monthly</option>
+        <option value="Yearly">Yearly</option>
+        <option value="Long Term">Long Term</option>
+
+      </select>
+
+    </div>
+
+
+    <!-- Rent -->
+    <div class="form-group">
+
+      <label>Expected Rent <span class="required">*</span></label>
+
+      <input
+  type="number"
+  [(ngModel)]="expectedRent"
+  name="expectedRent"
+  min="1"
+  required>
+
+    </div>
+
+
+    <!-- Negotiable -->
+    <div class="form-group">
+
+      <label>Negotiable?</label>
+
+      <label class="radio-label">
+        <input
+          type="radio"
+          [(ngModel)]="negotiable"
+          name="negotiable"
+          [value]="true">
+        Yes
+      </label>
+
+      <label class="radio-label">
+        <input
+          type="radio"
+          [(ngModel)]="negotiable"
+          name="negotiable"
+          [value]="false">
+        No
+      </label>
+
+    </div>
+
+
+    <!-- Price Mode -->
+    <div class="form-group">
+
+      <label>Price Mode <span class="required">*</span></label>
+
+      <select
+  [(ngModel)]="priceMode"
+  name="priceMode"
+  required>
+
+        <option value="">Select</option>
+        <option value="Per Month">Per Month</option>
+        <option value="Per Year">Per Year</option>
+
+      </select>
+
+    </div>
+
+
+    <!-- Furnished -->
+    <div class="form-group">
+
+      <label>Furnished?</label>
+
+      <label class="radio-label">
+        <input
+          type="radio"
+          [(ngModel)]="furnished"
+          name="furnished"
+          [value]="true">
+        Yes
+      </label>
+
+      <label class="radio-label">
+        <input
+          type="radio"
+          [(ngModel)]="furnished"
+          name="furnished"
+          [value]="false">
+        No
+      </label>
+
+    </div>
+
+
+    <!-- Amenities -->
+    <div class="form-group">
+
+      <label>Amenities</label>
+
+      <div class="amenities">
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Gym/Fitness Center')">
+          Gym/Fitness Center
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Power Backup')">
+          Power Backup
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Swimming Pool')">
+          Swimming Pool
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Garbage Disposal')">
+          Garbage Disposal
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Car Park')">
+          Car Park
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Private Lift')">
+          Private Lift
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Security')">
+          Security
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            (change)="toggleAmenity('Internet')">
+          Internet
+        </label>
+
+      </div>
+
+    </div>
+
+
+    <!-- Title -->
+    <div class="form-group">
+
+      <label>Title <span class="required">*</span></label>
+
+      <input
+        type="text"
+        [(ngModel)]="title"
+        name="title"
+        required>
+
+    </div>
+
+
+    <!-- Description -->
+    <div class="form-group">
+
+      <label>Description <span class="required">*</span></label>
+
+      <textarea
+        [(ngModel)]="description"
+        name="description"
+        rows="5"
+        required>
+      </textarea>
+
+    </div>
+
+
+<button
+  type="submit"
+  [disabled]="postForm.invalid">
+  Create Post
+</button>
+
+  </form>
+
+</div>
